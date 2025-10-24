@@ -3,13 +3,13 @@ import axios from 'axios';
 import Ex3 from '../src/components/Ex3.vue';
 
 test('Ex3 delete first blog post test', async ({mount}) => {
-    await axios.get('http://localhost:3000/addPost', {
-                        params: {
+    await axios.post('http://localhost:3000/addPost', {
+                        
                             subject: "Testing Post Deletion",
                             entry: "This is a test post to check if deletion works.",
                             mood: "Angry"
-                        }
-                    })
+                        })
+                    
     const component = await mount(Ex3);
     const response = await axios.get('http://localhost:3000/posts');
     const posts = response.data;
